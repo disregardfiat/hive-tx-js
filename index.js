@@ -1,4 +1,5 @@
 const signTransaction = require('./transactions/signTransaction')
+const transactionDigest = require('./transactions/transactionDigest')
 const createTransaction = require('./transactions/createTransaction')
 const broadcastTransaction = require('./transactions/broadcastTransaction')
 const broadcastTransactionNoResult = require('./transactions/broadcastTransactionNoResult')
@@ -47,6 +48,13 @@ class Transaction {
     this.signedTransaction = signedTransaction
     this.txId = txId
     return this.signedTransaction
+  }
+  
+  digest () {
+    if (!this.created) {
+      throw new Error('First create a transaction by .create(operations)')
+    }
+    return this.transactionDigest(this.transaction).digest
   }
 
   async broadcast () {
