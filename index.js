@@ -53,7 +53,7 @@ class Transaction {
     if (!this.created) {
       throw new Error('First create a transaction by .create(operations)')
     }
-    return this.transactionDigest(this.transaction).digest
+    return transactionDigest(this.transaction).digest
   }
 
   async broadcast () {
