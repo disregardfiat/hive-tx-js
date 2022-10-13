@@ -1,5 +1,4 @@
-const signTransaction = require('./transactions/signTransaction')
-const transactionDigest = require('./transactions/transactionDigest')
+const { signTransaction, transactionDigest } = require('./transactions/signTransaction')
 const createTransaction = require('./transactions/createTransaction')
 const broadcastTransaction = require('./transactions/broadcastTransaction')
 const broadcastTransactionNoResult = require('./transactions/broadcastTransactionNoResult')
